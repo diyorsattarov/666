@@ -72,7 +72,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>D:\Repos-dev\lcu-api-test\packages\JsonCpp.Windows.1.9.2\build\native\include\json;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\Repos-dev\lcu-api-test\packages\JsonCpp.Windows.1.9.2\build\native\include\json;D:\Repos-dev\lcu-api-test\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\include\gtest;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,7 +129,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;D:\Repos-dev\lcu-api-test\packages\JsonCpp.Windows.1.9.2\build\native\x64\Release\jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;D:\Repos-dev\lcu-api-test\packages\JsonCpp.Windows.1.9.2\build\native\x64\Release\jsoncpp.lib;D:\Repos-dev\lcu-api-test\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\lib\native\v140\windesktop\msvcstl\static\rt-dyn\x64\Release\gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -138,7 +138,7 @@
   <ItemGroup>
     <ClCompile Include="src\lcu\lcu.cpp" />
     <ClCompile Include="src\utils\utils.cpp" />
-    <ClCompile Include="tests\test_main.cpp" />
+    <ClCompile Include="tests\lcu\test_lcu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\lcu\lcu.h" />
@@ -147,8 +147,8 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\libcpr.1.10.5\build\native\libcpr.targets" Condition="Exists('..\packages\libcpr.1.10.5\build\native\libcpr.targets')" />
-    <Import Project="..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets" Condition="Exists('..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets')" />
     <Import Project="..\packages\JsonCpp.Windows.1.9.2\build\JsonCpp.Windows.targets" Condition="Exists('..\packages\JsonCpp.Windows.1.9.2\build\JsonCpp.Windows.targets')" />
+    <Import Project="..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets" Condition="Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -156,7 +156,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\libcpr.1.10.5\build\native\libcpr.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libcpr.1.10.5\build\native\libcpr.props'))" />
     <Error Condition="!Exists('..\packages\libcpr.1.10.5\build\native\libcpr.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libcpr.1.10.5\build\native\libcpr.targets'))" />
-    <Error Condition="!Exists('..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets'))" />
     <Error Condition="!Exists('..\packages\JsonCpp.Windows.1.9.2\build\JsonCpp.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JsonCpp.Windows.1.9.2\build\JsonCpp.Windows.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets'))" />
   </Target>
 </Project>
