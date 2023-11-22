@@ -18,21 +18,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test\test_main.cpp">
+    <ClCompile Include="tests\test_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test\LCU.cpp">
+    <ClCompile Include="tests\LCU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test\Utils.cpp">
+    <ClCompile Include="tests\Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test\LCU.h">
+    <ClInclude Include="tests\LCU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="test\Utils.h">
+    <ClInclude Include="tests\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
