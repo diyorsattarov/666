@@ -1,3 +1,4 @@
+#include "Utils.h"
 #include "LCU.h"
 
 std::string LCU::Request(const std::string& method, const std::string& endpoint, const cpr::Header& headers, const std::string& body) {
@@ -10,7 +11,12 @@ std::string LCU::Request(const std::string& method, const std::string& endpoint,
 	session.SetHeader(headers);
 	session.SetVerifySsl(false);
 
-	r = session.Get();
+	if (const std::string upperMethod = Utils::ToUpper(method); upperMethod == "GET") {
+		r = session.Get();
+	}
+	else if (upperMethod == "PUT") {
+		r = session.Put();
+	}
 
 	return r.text;
 }
