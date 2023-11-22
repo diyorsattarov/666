@@ -136,13 +136,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tests\LCU.cpp" />
+    <ClCompile Include="src\lcu\lcu.cpp" />
+    <ClCompile Include="src\utils\utils.cpp" />
     <ClCompile Include="tests\test_main.cpp" />
-    <ClCompile Include="tests\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tests\LCU.h" />
-    <ClInclude Include="tests\Utils.h" />
+    <ClInclude Include="include\lcu\lcu.h" />
+    <ClInclude Include="include\utils\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

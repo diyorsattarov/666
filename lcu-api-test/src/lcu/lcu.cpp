@@ -1,9 +1,9 @@
-#include "Utils.h"
-#include "LCU.h"
+#include "../../include/lcu/lcu.h"
+#include "../../include/utils/utils.h"
 
 std::string LCU::Request(const std::string& method, const std::string& endpoint, const cpr::Header& headers, const std::string& body) {
 	std::string sURL = endpoint;
-	
+
 	cpr::Response r = {};
 
 	session.SetUrl(sURL);

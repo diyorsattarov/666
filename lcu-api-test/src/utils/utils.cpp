@@ -1,13 +1,5 @@
-#include <locale>
-#include <codecvt>
-#include <sstream>
-#include <filesystem>
-#include <array>
 #include <cwctype>
-#include <random>
-
-
-#include "Utils.h"
+#include "../../include/utils/utils.h"
 
 std::string Utils::ToUpper(std::string str) {
 	std::ranges::transform(str, str.begin(), [](const unsigned char c) { return static_cast<char>(std::toupper(c)); });

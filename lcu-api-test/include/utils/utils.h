@@ -1,7 +1,7 @@
 #pragma once
 #include <cpr/cpr.h>
 
-class Utils{
+class Utils {
 public:
 	Utils() = default;
 	~Utils() = default;

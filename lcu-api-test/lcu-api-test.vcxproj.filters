@@ -21,18 +21,18 @@
     <ClCompile Include="tests\test_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\LCU.cpp">
+    <ClCompile Include="src\utils\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\Utils.cpp">
+    <ClCompile Include="src\lcu\lcu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tests\LCU.h">
+    <ClInclude Include="include\utils\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tests\Utils.h">
+    <ClInclude Include="include\lcu\lcu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

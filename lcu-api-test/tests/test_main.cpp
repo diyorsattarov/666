@@ -1,6 +1,6 @@
 #include <iostream>
 #include <json/json.h>
-#include "LCU.h"
+#include "../include/lcu/lcu.h"
 
 int main() {
     // Initialize the LCU class
