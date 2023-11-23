@@ -12,12 +12,6 @@ protected:
     LCU lcu;
     std::string endpoint;
     std::string jsonPayload;
-
-    cpr::Header headers{
-        {"accept", "application/json"},
-        {"Authorization", "Basic cmlvdDpyNEZ3TjJoVHJKUllPTTZDaGxBczRB"},
-        {"Content-Type", "application/json"}
-    };
 };
 
 TEST_F(LCUTest, PutRequestTest) {
@@ -27,8 +21,8 @@ TEST_F(LCUTest, PutRequestTest) {
             "profileIconId": 29
         }
     )";
-    endpoint = "https://127.0.0.1:59284/lol-summoner/v1/current-summoner/icon";
-    std::string response = lcu.Request("PUT", endpoint, headers, jsonPayload);
+    endpoint = "/lol-summoner/v1/current-summoner/icon";
+    std::string response = lcu.Request("PUT", endpoint, jsonPayload);
     Json::CharReaderBuilder reader;
     Json::Value root;
     std::istringstream response_stream(response);
@@ -43,8 +37,8 @@ TEST_F(LCUTest, PutRequestTest) {
 }
 
 TEST_F(LCUTest, GetRequestTest) {
-    std::string endpoint = "https://127.0.0.1:59284/lol-summoner/v1/current-summoner";
-    std::string response = lcu.Request("GET", endpoint, headers);
+    std::string endpoint = "/lol-summoner/v1/current-summoner";
+    std::string response = lcu.Request("GET", endpoint);
     Json::CharReaderBuilder reader;
     Json::Value root;
     std::istringstream response_stream(response);
