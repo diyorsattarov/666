@@ -136,11 +136,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\auth\auth.cpp" />
     <ClCompile Include="src\lcu\lcu.cpp" />
     <ClCompile Include="src\utils\utils.cpp" />
     <ClCompile Include="tests\lcu\test_lcu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\auth\auth.h" />
     <ClInclude Include="include\lcu\lcu.h" />
     <ClInclude Include="include\utils\utils.h" />
   </ItemGroup>

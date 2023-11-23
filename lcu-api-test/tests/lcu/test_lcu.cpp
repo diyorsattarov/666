@@ -41,3 +41,18 @@ TEST_F(LCUTest, PutRequestTest) {
         std::cerr << "Invalid JSON response." << std::endl;
     }
 }
+
+TEST_F(LCUTest, GetRequestTest) {
+    std::string endpoint = "https://127.0.0.1:59284/lol-summoner/v1/current-summoner";
+    std::string response = lcu.Request("GET", endpoint, headers);
+    Json::CharReaderBuilder reader;
+    Json::Value root;
+    std::istringstream response_stream(response);
+    Json::parseFromStream(reader, response_stream, &root, nullptr);
+    if (root.isObject() && root.isMember("gameName")) {
+        ASSERT_EQ(root["gameName"], "koshka");
+    }
+    else {
+        std::cerr << "Invalid JSON response." << std::endl;
+    }
+}

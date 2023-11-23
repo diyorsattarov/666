@@ -27,12 +27,18 @@
     <ClCompile Include="tests\lcu\test_lcu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\auth\auth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\utils\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\lcu\lcu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\auth\auth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
