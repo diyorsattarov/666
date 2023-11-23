@@ -22,31 +22,40 @@ TEST_F(LCUTest, PutRequestTest) {
         }
     )";
     endpoint = "/lol-summoner/v1/current-summoner/icon";
-    std::string response = lcu.Request("PUT", endpoint, jsonPayload);
-    Json::CharReaderBuilder reader;
-    Json::Value root;
-    std::istringstream response_stream(response);
-    Json::parseFromStream(reader, response_stream, &root, nullptr);
 
-    if (root.isObject() && root.isMember("profileIconId")) {
-        ASSERT_EQ(root["profileIconId"], 29);
-    }
-    else {
-        std::cerr << "Invalid JSON response." << std::endl;
-    }
+    // Expect no throw for the Request
+    EXPECT_NO_THROW({
+        std::string response = lcu.Request("PUT", endpoint, jsonPayload);
+        Json::CharReaderBuilder reader;
+        Json::Value root;
+        std::istringstream response_stream(response);
+        Json::parseFromStream(reader, response_stream, &root, nullptr);
+
+        if (root.isObject() && root.isMember("profileIconId")) {
+            ASSERT_EQ(root["profileIconId"], 29);
+        }
+        else {
+            std::cerr << "Invalid JSON response." << std::endl;
+        }
+    });
 }
 
 TEST_F(LCUTest, GetRequestTest) {
     std::string endpoint = "/lol-summoner/v1/current-summoner";
-    std::string response = lcu.Request("GET", endpoint);
-    Json::CharReaderBuilder reader;
-    Json::Value root;
-    std::istringstream response_stream(response);
-    Json::parseFromStream(reader, response_stream, &root, nullptr);
-    if (root.isObject() && root.isMember("gameName")) {
-        ASSERT_EQ(root["gameName"], "koshka");
-    }
-    else {
-        std::cerr << "Invalid JSON response." << std::endl;
-    }
+
+    // Expect no throw for the Request
+    EXPECT_NO_THROW({
+        std::string response = lcu.Request("GET", endpoint);
+        Json::CharReaderBuilder reader;
+        Json::Value root;
+        std::istringstream response_stream(response);
+        Json::parseFromStream(reader, response_stream, &root, nullptr);
+
+        if (root.isObject() && root.isMember("gameName")) {
+            ASSERT_EQ(root["gameName"], "koshka");
+        }
+        else {
+            std::cerr << "Invalid JSON response." << std::endl;
+        }
+    });
 }

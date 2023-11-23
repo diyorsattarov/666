@@ -24,10 +24,10 @@
     <ClCompile Include="src\lcu\lcu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\lcu\test_lcu.cpp">
+    <ClCompile Include="src\auth\auth.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\auth\auth.cpp">
+    <ClCompile Include="tests\auth\test_auth.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

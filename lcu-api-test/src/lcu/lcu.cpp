@@ -2,12 +2,12 @@
 #include "../../include/utils/utils.h"
 
 std::string LCU::Request(const std::string& method, const std::string& endpoint, const std::string& body) {
-    std::string sURL = "https://127.0.0.1:59284" + endpoint;
+    std::string sURL = "https://127.0.0.1:54182" + endpoint;
 
     cpr::Response r = {};
     cpr::Header defaultHeaders{
         {"accept", "application/json"},
-        {"Authorization", "Basic cmlvdDpyNEZ3TjJoVHJKUllPTTZDaGxBczRB"},
+        {"Authorization", "Basic cmlvdDpfdGJ0Z0psUFBRSjBYbFVOYzRVR19B"},
         {"Content-Type", "application/json"}
     };
 

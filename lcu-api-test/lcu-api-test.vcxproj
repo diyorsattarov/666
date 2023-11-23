@@ -139,7 +139,7 @@
     <ClCompile Include="src\auth\auth.cpp" />
     <ClCompile Include="src\lcu\lcu.cpp" />
     <ClCompile Include="src\utils\utils.cpp" />
-    <ClCompile Include="tests\lcu\test_lcu.cpp" />
+    <ClCompile Include="tests\auth\test_auth.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\auth\auth.h" />
