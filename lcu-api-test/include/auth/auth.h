@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "../../include/base64/base64.h"
+
 struct ClientInfo {
 	int port = 0;
 	std::string token;
@@ -24,7 +26,7 @@ public:
 	// MakeLeagueHeader method
 	// MakeRiotHeader method
 private:
-	//static inline Base64 base64;
+	static inline Base64 base64;
 
 	static int GetPort(const std::string& cmdLine, bool riotClient = false);
 	static std::string GetToken(const std::string& cmdLine, bool riotClient = false);

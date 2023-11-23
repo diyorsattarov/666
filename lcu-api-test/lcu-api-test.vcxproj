@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\auth\auth.h" />
+    <ClInclude Include="include\base64\base64.h" />
     <ClInclude Include="include\lcu\lcu.h" />
     <ClInclude Include="include\utils\utils.h" />
   </ItemGroup>

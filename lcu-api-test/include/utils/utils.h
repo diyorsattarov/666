@@ -9,4 +9,5 @@ public:
 	static std::string ToUpper(std::string str);
 	static std::wstring ToUpper(std::wstring wstr);
 
+	static std::string WstringToString(const std::wstring& wstr);
 };

@@ -9,6 +9,45 @@
 #include "../../include/auth/auth.h"
 #include "../../include/utils/utils.h"
 
+ClientInfo Auth::GetClientInfo(const DWORD& pid, bool riotClient) {
+	if (!pid)
+		return {};
+
+	const std::string cmdLine = Utils::WstringToString(GetProcessCommandLine(pid));
+	if (cmdLine.empty())
+		return {};
+
+	ClientInfo info;
+	info.port = GetPort(cmdLine, riotClient);
+	info.token = GetToken(cmdLine, riotClient);
+	info.path = GetProcessPath(pid);
+	info.version = GetFileVersion(info.path);
+
+	return info;
+}
+
+int Auth::GetPort(const std::string& cmdLine, const bool riotClient) {
+	std::regex regexStr;
+	regexStr = riotClient ? "--riotclient-app-port=(\\d*)" : "--app-port=(\\d*)";
+	if (std::smatch m; std::regex_search(cmdLine, m, regexStr))
+		return std::stoi(m[1].str());
+
+	return 0;
+}
+
+std::string Auth::GetToken(const std::string& cmdLine, const bool riotClient) {
+	std::regex regexStr;
+	regexStr = riotClient ? "--riotclient-auth-token=([\\w-]*)" : "--remoting-auth-token=([\\w-]*)";
+	if (std::smatch m; std::regex_search(cmdLine, m, regexStr))
+	{
+		std::string token = "riot:" + m[1].str();
+		char* tokenArray = token.data();
+		return base64.Encode(reinterpret_cast<unsigned char*>(tokenArray), static_cast<unsigned>(token.size()));
+	}
+
+	return "";
+}
+
 DWORD Auth::GetProcessId(const std::wstring& processName) {
 	static HMODULE kernel32 = GetModuleHandleA("kernel32");
 	static auto pCreateToolhelp32Snapshot = (decltype(&CreateToolhelp32Snapshot))GetProcAddress(kernel32, "CreateToolhelp32Snapshot");
@@ -188,7 +227,7 @@ std::wstring Auth::GetProcessCommandLine(const DWORD& processId) {
 			MessageBoxA(nullptr, "PEB ReadProcessMemory failed", nullptr, 0);
 			CloseHandle(processHandle);
 			return {};
-		}
+		}	
 
 		if (const PBYTE* parameters = static_cast<PBYTE*>(*reinterpret_cast<LPVOID*>(peb + ProcessParametersOffset)); !pReadProcessMemory(
 			processHandle, parameters, processParameters, processParametersSize, nullptr)) {

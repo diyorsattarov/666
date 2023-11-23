@@ -42,5 +42,8 @@
     <ClInclude Include="include\auth\auth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\base64\base64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
