@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 #include <Windows.h>
-#include "../../include/auth/auth.h" // Include the actual path to your Auth header
+#include "../../include/auth/auth.h"
+#include "../../include/utils/utils.h"
+
+DWORD testProcessId;
 
 class AuthTest : public ::testing::Test {
 protected:
@@ -15,18 +18,17 @@ TEST_F(AuthTest, TestGetAllProcessIds) {
     ASSERT_FALSE(processIds.empty());
     for (const auto& pid : processIds) {
         std::cout << "Found process with ID: " << pid << std::endl;
+        testProcessId = pid;
     }
 }
 TEST_F(AuthTest, TestGetClientInfo) {
-    // Assuming you have a valid process ID for testing
-    const DWORD testProcessId = 7760;
-    const bool testRiotClient = false; // or false depending on your use case
-
-    ClientInfo info = Auth::GetClientInfo(testProcessId, testRiotClient);
-
-    // Replace these assertions with your actual expected values
-    ASSERT_EQ(info.port, 54182);
-    ASSERT_EQ(info.token, "cmlvdDp0a3hHclo4dGs0SUV3VVdNMm9ocGh3");
-    //ASSERT_EQ(info.path, /* expected path value */);
-    //ASSERT_EQ(info.version, /* expected version value */);
+    ClientInfo info = Auth::GetClientInfo(testProcessId, false);
+    std::cout << "Found port: " << info.port << std::endl;
+    std::cout << "Found token: " << info.token << std::endl;
+    std::cout << "Found Path: " << Utils::WstringToString(info.path) << std::endl;
+    std::cout << "Found Version: " << info.version << std::endl;
+    ASSERT_NE(info.port, 0);
+    ASSERT_NE(info.token, "");
+    ASSERT_NE(Utils::WstringToString(info.path), "");
+    ASSERT_NE(info.version, "");
 }
