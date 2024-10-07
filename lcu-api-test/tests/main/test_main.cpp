@@ -7,7 +7,7 @@ int main() {
     LCU lcu;
 
     // Define the endpoint
-    std::string endpoint = "https://127.0.0.1:59284/lol-summoner/v1/current-summoner/icon";
+    std::string endpoint = "/lol-summoner/v1/current-summoner/icon";
 
     cpr::Header headers{
         {"accept", "application/json"},
