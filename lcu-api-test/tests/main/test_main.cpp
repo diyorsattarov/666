@@ -11,7 +11,7 @@ int main() {
 
     cpr::Header headers{
         {"accept", "application/json"},
-        {"Authorization", "Basic cmlvdDpyNEZ3TjJoVHJKUllPTTZDaGxBczRB"},
+        {"Authorization", ""},
         {"Content-Type", "application/json"}
     };
 
